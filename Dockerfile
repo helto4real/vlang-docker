@@ -21,7 +21,4 @@ RUN git clone https://github.com/vlang/v /opt/vlang && make && v -version
 
 RUN echo "while true; do sleep 1000; done" > /run.sh && chmod +x /run.sh
 
-RUN mkdir /home/projects
-WORKDIR /home/projects
-
 CMD ["/bin/bash","/run.sh"]
