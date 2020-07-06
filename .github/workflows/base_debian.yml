@@ -1,13 +1,11 @@
 #### Publish tags to docker hub
-name: Deploy nightly build to Dockerhub
+name: Build and deploy debian base images
 on:
   push:
     branches:
     - master
     paths:
-      - '.github/workflows/nightly_builds.yml'
-  schedule:
-      - cron: '0 2 * * *' # run at 2 AM UTC
+      - '.github/workflows/base_debian.yml'
 jobs:
   deploy:
     name: Checkout and deploy
@@ -18,6 +16,6 @@ jobs:
         with:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_TOKEN }}
-            repository: thevlang/vlang
-            tags: latest, dev, buster
-            dockerfile: ${{github.workspace}}/Dockerfile
+            repository: thevlang/vlang-base
+            tags: latest, buster
+            dockerfile: ${{github.workspace}}/docker/base/os/debian/Dockerfile.buster
