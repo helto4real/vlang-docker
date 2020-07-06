@@ -1,10 +1,11 @@
 #### Publish tags to docker hub
 name: Deploy to Docker Hub for tags
 on:
-   push:
-     tags:
-       - '*'
-
+    push:
+        tags:
+        - '*'
+        branches:
+        - master
 jobs:
   deploy:
     name: Deploy to Docker Hub
@@ -16,5 +17,5 @@ jobs:
             password: ${{ secrets.DOCKER_TOKEN }}
             repository: thevlang/v
             tags: latest, dev, buster
-            dockerfile: Dockerfile
+            dockerfile: ${{github.workspace}}/Dockerfile
 #            --tag netdaemon/netdaemon:${GIT_TAG_NAME}
