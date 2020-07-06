@@ -26,13 +26,13 @@ docker run -d \
   -d \
   -v ${PWD}:/developer/project \
   --name v-container \
-  thevlang/v
+  thevlang/vlang
 
 ```
 
 # Different images being built
 
-Latest and dev tags is a nightly builds since V is under heavy development and are currently the same image. This will change when V language is released in stable form. 
+Latest and dev tags is a nightly builds since V is under heavy development and are currently the same image. This will change when V language is released in stable form. Also other plattforms and os versions will be added.
 
 | tag           |       Description |
 | ------------- | ----------------- |
