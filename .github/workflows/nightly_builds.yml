@@ -20,4 +20,4 @@ jobs:
             password: ${{ secrets.DOCKER_TOKEN }}
             repository: thevlang/vlang
             tags: latest, dev, buster
-            dockerfile: ${{github.workspace}}/Dockerfile
+            dockerfile: ${{github.workspace}}/docker/vlang/Dockerfile.nightly

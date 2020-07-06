@@ -1,0 +1,14 @@
+# This is the dockerfile for generating V-development docker images
+# It is currently using debian but will be changed to alpine when
+# itś supported
+FROM thevlang/vlang-base:buster
+
+LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
+
+WORKDIR /opt/vlang
+
+RUN apt-get install -y --no-install-recommends clang && \
+    apt-get clean && rm -rf /var/cache/apt/archives/* && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/vlang/v /opt/vlang && make && v -version
