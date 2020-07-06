@@ -1,3 +1,7 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/helto4real/vlang-docker/Deploy%20nightly%20build%20to%20Dockerhub) 
+![Docker Pulls](https://img.shields.io/docker/pulls/thevlang/vlang)
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/thevlang/vlang)
+
 # V programming language docker images
 Docker container for V programming language
 
