@@ -1,0 +1,20 @@
+#### Publish tags to docker hub
+name: Deploy to Docker Hub for tags
+on:
+   push:
+     tags:
+       - '*'
+
+jobs:
+  deploy:
+    name: Deploy to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/build-push-action@v1
+        with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_TOKEN }}
+            repository: thevlang/v
+            tags: latest, dev, buster
+            dockerfile: Dockerfile
+#            --tag netdaemon/netdaemon:${GIT_TAG_NAME}
