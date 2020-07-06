@@ -11,11 +11,12 @@ jobs:
     name: Deploy to Docker Hub
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1  
       - uses: docker/build-push-action@v1
         with:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_TOKEN }}
             repository: thevlang/v
             tags: latest, dev, buster
-            # dockerfile: ${{github.workspace}}/Dockerfile
+            dockerfile: ${{github.workspace}}/Dockerfile
 #            --tag netdaemon/netdaemon:${GIT_TAG_NAME}
