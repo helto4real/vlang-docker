@@ -1,11 +1,8 @@
 #### Publish tags to docker hub
 name: Deploy to Docker Hub for tags
 on:
-    push:
-        tags:
-        - '*'
-        branches:
-        - master
+    schedule:
+        - cron: '0 2 * * *' # run at 2 AM UTC
 jobs:
   deploy:
     name: Deploy to Docker Hub
@@ -19,4 +16,3 @@ jobs:
             repository: thevlang/vlang
             tags: latest, dev, buster
             dockerfile: ${{github.workspace}}/Dockerfile
-#            --tag netdaemon/netdaemon:${GIT_TAG_NAME}
