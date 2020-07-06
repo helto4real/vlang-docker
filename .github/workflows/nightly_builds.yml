@@ -1,8 +1,11 @@
 #### Publish tags to docker hub
 name: Deploy nightly build to Dockerhub
 on:
-    schedule:
-        - cron: '0 2 * * *' # run at 2 AM UTC
+  push:
+    branches:
+    - master
+  schedule:
+      - cron: '0 2 * * *' # run at 2 AM UTC
 jobs:
   deploy:
     name: Checkout and deploy
