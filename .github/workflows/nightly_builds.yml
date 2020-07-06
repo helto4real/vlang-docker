@@ -17,5 +17,5 @@ jobs:
             password: ${{ secrets.DOCKER_TOKEN }}
             repository: thevlang/v
             tags: latest, dev, buster
-            dockerfile: ${{github.workspace}}/Dockerfile
+            # dockerfile: ${{github.workspace}}/Dockerfile
 #            --tag netdaemon/netdaemon:${GIT_TAG_NAME}
