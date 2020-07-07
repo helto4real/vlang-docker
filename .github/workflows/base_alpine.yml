@@ -1,4 +1,4 @@
-#### Publish to docker hub
+#### Publish to docker hub 
 name: Build and deploy Alpine base images
 on:
   push:
