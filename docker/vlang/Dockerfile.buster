@@ -1,5 +1,5 @@
 # Generates basic image with compiled V using clang as default
-FROM thevlang/vlang-base:buster AS BASE 
+FROM thevlang/vlang-base:buster AS builder 
 
 LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 
@@ -14,7 +14,7 @@ RUN apt-get update && \
 RUN git clone https://github.com/vlang/v /opt/vlang && make && v -version
 
 
-FROM thevlang/vlang-base:buster AS RUNTIME 
+FROM thevlang/vlang-base:buster AS runtime 
 
 LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 
@@ -27,4 +27,4 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the prebuilt V compiler
-COPY --from=BUILDER /opt/vlang /opt/vlang
+COPY --from=builder /opt/vlang /opt/vlang
