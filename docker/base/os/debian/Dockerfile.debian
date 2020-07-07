@@ -1,0 +1,35 @@
+# This is the dockerfile for generating base images for Buster
+FROM debian:buster
+
+LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
+
+WORKDIR /opt/vlang
+
+ENV VVV  /opt/vlang
+ENV PATH /opt/vlang:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+RUN mkdir -p /opt/vlang && ln -s /opt/vlang/v /usr/bin/v
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive && \
+    # Default base depenencies
+    apt-get install -y --no-install-recommends libssl-dev libsqlite3-dev && \
+    # Git support
+    # apt-get install -y --no-install-recommends git openssh-client && \
+    # js back-end
+    # apt-get install -y --no-install-recommends nodejs npm && \
+    # V-development dependencies
+    # apt-get install -y --no-install-recommends valgrind make && \
+    # V-UI dependencies
+    # apt-get install -y --no-install-recommends libx11-dev libglfw3-dev libfreetype6-dev && \
+    # Clean 
+    apt-get clean && rm -rf /var/cache/apt/archives/* && \
+    rm -rf /var/lib/apt/lists/*
+
+# This is the default behavor just do nothing, other images will 
+# probably change this to another entrypoint
+# COPY docker/base/os/run.sh /run.sh
+
+# RUN chmod +x /run.sh
+
+# ENTRYPOINT [ "/run.sh" ]

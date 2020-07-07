@@ -1,6 +1,4 @@
-# This is the dockerfile for generating V-development docker images
-# It is currently using debian but will be changed to alpine when
-# itś supported
+# Generates basic image with compiled V using clang as default
 FROM thevlang/vlang-base:buster
 
 LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"

@@ -10,7 +10,7 @@ on:
   schedule:
       - cron: '0 2 * * *' # run at 2 AM UTC
 jobs:
-  deploy:
+  deploy_latest:
     name: Checkout and deploy
     runs-on: ubuntu-latest
     steps:
@@ -20,5 +20,6 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_TOKEN }}
             repository: thevlang/vlang
+            tag_with_sha: true
             tags: latest, dev, buster
             dockerfile: ${{github.workspace}}/docker/vlang/Dockerfile.nightly
