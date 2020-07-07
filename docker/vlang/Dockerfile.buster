@@ -6,7 +6,7 @@ LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 WORKDIR /opt/vlang
 
 RUN apt-get update && \
-    apt-get install -y clang git && \
+    apt-get install -y clang git make && \
     apt-get clean && rm -rf /var/cache/apt/archives/* && \
     rm -rf /var/lib/apt/lists/*
 
