@@ -3,7 +3,7 @@
 # - gcc compiler (only works on alpine)
 
 # Stage 1 - Build the V-compiler
-FROM thevlang/vlang:alpine-builder AS builder
+FROM thevlang/vlang:alpine-build AS builder
 
 WORKDIR /opt/vlang
 
