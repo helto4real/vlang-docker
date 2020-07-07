@@ -3,18 +3,13 @@
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/thevlang/vlang)
 
 # V programming language docker images
-Docker container for V programming language
-
-This image contains:
-- **Debian Buster**, latest version (will be moved to alpine when supported)
-- **Gcc** and **Clang** compilers
-- **Nodejs** and **Npm**
-- **Git**
-- **Open-ssh Client**, to support github push over ssh
-- **Valgrind**
-- plus other dependencies
+Docker container for V programming language. Please check individual Dockerfile for what is provided in detail
 
 Works both with docker for linux and windows on x86 plattform.. All tags are currently same but will be different as V-language evolve.  
+
+## Structure of the image
+
+The images are deployed as `thevlang/vlang:tag`. This will hopefully eventually be official image for vlang.
 
 # Usage
 
