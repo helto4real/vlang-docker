@@ -19,7 +19,7 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_TOKEN }}
             repository: thevlang/vlang
-            tags: latest, dev, buster
+            tags: latest, buster
             dockerfile: ${{github.workspace}}/docker/vlang/Dockerfile.buster
       - uses: docker/build-push-action@v1
         with:
