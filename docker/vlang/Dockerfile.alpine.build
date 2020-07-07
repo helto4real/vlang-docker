@@ -14,6 +14,9 @@ RUN apk --no-cache add \
     # js back-end 
     nodejs npm  \
     # V-development dependencies
-    make musl-dev valgrind gcc \
+    make musl-dev valgrind clang gcc \
     # V-UI dependencies
     libx11-dev glfw-dev freetype-dev 
+# Make cc 
+# ln -sf /usr/bin/clang /usr/bin/cc 
+#ln -sf /usr/bin/lld /usr/bin/ld

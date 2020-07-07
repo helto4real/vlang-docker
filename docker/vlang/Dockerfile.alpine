@@ -7,7 +7,7 @@ FROM thevlang/vlang:alpine-build AS builder
 
 WORKDIR /opt/vlang
 
-RUN git clone https://github.com/vlang/v /opt/vlang && make && v -version
+RUN git clone https://github.com/vlang/v /opt/vlang && make CC=clang && v -version
 
 # Stage 2 - Make minimal runtime without git and make 
 #           we still nedd gcc and musl-dev for v to compile
@@ -16,6 +16,7 @@ FROM thevlang/vlang:alpine-base AS runtime
 
 RUN apk --no-cache add \
     gcc musl-dev 
+
 
 # Copy the prebuilt V compiler
 COPY --from=builder /opt/vlang /opt/vlang
