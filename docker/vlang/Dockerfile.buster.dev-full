@@ -1,6 +1,6 @@
 # Generates basic image with compiled V using tcc
 
-FROM thevlang/vlang-base:buster
+FROM thevlang/vlang:buster-build
 
 LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 
