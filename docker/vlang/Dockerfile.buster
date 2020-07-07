@@ -6,9 +6,25 @@ LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 WORKDIR /opt/vlang
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends clang && \
+    apt-get install -y --no-install-recommends clang git && \
     apt-get clean && rm -rf /var/cache/apt/archives/* && \
     rm -rf /var/lib/apt/lists/*
 
 # Install V
 RUN git clone https://github.com/vlang/v /opt/vlang && make && v -version
+
+
+FROM thevlang/vlang-base:buster AS RUNTIME 
+
+LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
+
+WORKDIR /opt/vlang
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    clang && \
+    apt-get clean && rm -rf /var/cache/apt/archives/* && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy the prebuilt V compiler
+COPY --from=BUILDER /opt/vlang /opt/vlang
