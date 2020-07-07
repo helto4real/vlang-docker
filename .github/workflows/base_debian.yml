@@ -1,4 +1,4 @@
-#### Publish tags to docker hub
+#### Publish to docker hub
 name: Build and deploy debian base images
 on:
   push:
@@ -6,6 +6,7 @@ on:
     - master
     paths:
       - '.github/workflows/base_debian.yml'
+      - 'docker/base/os/debian/Dockerfile.debian'
 jobs:
   deploy:
     name: Checkout and deploy

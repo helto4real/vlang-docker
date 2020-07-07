@@ -1,5 +1,5 @@
 # Generates basic image with compiled V using clang as default
-FROM thevlang/vlang-base:buster
+FROM thevlang/vlang-base:buster AS BASE 
 
 LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 

@@ -6,7 +6,7 @@ on:
     - master
     paths:
       - '.github/workflows/nightly_builds.yml'
-      - 'docker/vlang/Dockerfile.nightly'
+      - 'docker/vlang/Dockerfile.buster'
   schedule:
       - cron: '0 2 * * *' # run at 2 AM UTC
 jobs:
@@ -22,4 +22,4 @@ jobs:
             repository: thevlang/vlang
             tag_with_sha: true
             tags: latest, dev, buster
-            dockerfile: ${{github.workspace}}/docker/vlang/Dockerfile.nightly
+            dockerfile: ${{github.workspace}}/docker/vlang/Dockerfile.buster

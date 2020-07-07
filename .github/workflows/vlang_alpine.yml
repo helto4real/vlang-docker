@@ -1,12 +1,12 @@
 #### Publish to docker hub
-name: Build and deploy Alpine base images
+name: Build and deploy Alpine vlang images
 on:
   push:
     branches:
     - master
     paths:
-      - '.github/workflows/base_alpine.yml'
-      - 'docker/base/os/alpine/Dockerfile.alpine'
+      - '.github/workflows/vlang_alpine.yml'
+      - '.docker/vlang/Dockerfile.alpine'
 jobs:
   deploy:
     name: Checkout and deploy

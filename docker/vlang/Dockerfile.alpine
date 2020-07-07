@@ -3,7 +3,7 @@
 # - gcc compiler (only works on alpine)
 
 # Stage 1 - Build the V-compiler
-FROM alpine-base AS BUILDER
+FROM thevlang/vlang-base:alpine AS BUILDER
 
 # Add the build dependencies
 RUN apk --no-cache add \
@@ -15,8 +15,10 @@ WORKDIR /opt/vlang
 
 RUN git clone https://github.com/vlang/v /opt/vlang && make && v -version
 
-# Stage 2 - Make minimal runtime
-FROM alpine-base AS RUNTIME
+# Stage 2 - Make minimal runtime without git and make 
+#           we still nedd gcc and musl-dev for v to compile
+
+FROM thevlang/vlang-base:alpine AS RUNTIME
 
 RUN apk --no-cache add \
     gcc musl-dev 
