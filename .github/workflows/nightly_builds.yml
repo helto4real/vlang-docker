@@ -6,7 +6,6 @@ on:
     - master
     paths:
       - '.github/workflows/nightly_builds.yml'
-      - 'docker/vlang/Dockerfile.buster'
   schedule:
       - cron: '0 2 * * *' # run at 2 AM UTC
 jobs:
@@ -20,7 +19,6 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_TOKEN }}
             repository: thevlang/vlang
-            tag_with_sha: true
             tags: latest, dev, buster
             dockerfile: ${{github.workspace}}/docker/vlang/Dockerfile.buster
       - uses: docker/build-push-action@v1
@@ -28,6 +26,5 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_TOKEN }}
             repository: thevlang/vlang
-            tag_with_sha: true
             tags: alpine
             dockerfile: ${{github.workspace}}/docker/vlang/Dockerfile.alpine
