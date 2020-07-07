@@ -1,20 +1,15 @@
 # Generates basic image with compiled V using clang as default
-FROM thevlang/vlang-base:buster AS builder 
+FROM thevlang/vlang:buster-build AS builder 
 
 LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 
 WORKDIR /opt/vlang
 
-RUN apt-get update && \
-    apt-get install -y clang git make && \
-    apt-get clean && rm -rf /var/cache/apt/archives/* && \
-    rm -rf /var/lib/apt/lists/*
-
 # Install V
 RUN git clone https://github.com/vlang/v /opt/vlang && make && v -version
 
 
-FROM thevlang/vlang-base:buster AS runtime 
+FROM thevlang/vlang:buster-base AS runtime 
 
 LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 
