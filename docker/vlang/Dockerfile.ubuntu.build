@@ -6,6 +6,7 @@ LABEL maintainer="helto4real <helto4real@joysoftware.xyz>"
 WORKDIR /opt/vlang
 
 RUN apt-get update && \
+    echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
     apt-get install --no-install-recommends -y \
     # Git support
     git openssh-client \

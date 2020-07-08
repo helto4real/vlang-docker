@@ -1,5 +1,5 @@
 #### Publish to docker hub
-name: Build and deploy debian builder image
+name: Build and deploy Ubuntu builder image
 on:
   push:
     branches:
