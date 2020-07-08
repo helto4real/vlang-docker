@@ -6,7 +6,7 @@ on:
     - master
     paths:
       - '.github/workflows/build_ubuntu.yml'
-      - 'docker/vlang/Dockerfile.buster.build'
+      - 'docker/vlang/Dockerfile.ubuntu.build'
 jobs:
   deploy:
     name: Checkout and deploy
