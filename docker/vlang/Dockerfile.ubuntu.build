@@ -11,6 +11,8 @@ RUN apt-get update && \
     git openssh-client \
     # js back-end 
     nodejs npm  \
+    # musl support \
+    musl musl-tools \
     # V-development dependencies
     clang valgrind make \
     # V-UI dependencies
