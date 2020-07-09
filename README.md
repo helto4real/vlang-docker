@@ -19,15 +19,30 @@ The images are deployed as `thevlang/vlang:tag`. This will hopefully eventually 
 
 ## 2 Running the image
 
+### Running the standard image
+
+Running the development image using iteractive terminal.
+
 ```bash
-
-docker run -d \
-  -d \
-  -v ${PWD}:/developer/project \
+docker run \
+  -it \
   --name v-container \
-  thevlang/vlang
-
+  thevlang/vlang \
+  /bin/bash
 ```
+
+### Running the development image
+
+Running the development image using iteractive terminal and mapping current directory to internal /src directory.
+```bash
+docker run \
+  -it \
+  -v ${PWD}:/src \
+  --name v-dev-container \
+  thevlang/vlang:alpine-dev \
+  /bin/sh
+```
+
 
 # Different images being built
 
@@ -36,5 +51,16 @@ Latest and dev tags is a nightly builds since V is under heavy development and a
 | tag           |       Description |
 | ------------- | ----------------- |
 | latest        | Nightly build of latest V on Debian Buster|
+| \[githash\]   | The sha commit id built |
 | buster        | Nightly build of latest V on Debian Buster|
-| dev           | Development build with all development dependecies |
+| alpine        | Nightly build of latest V on Alpine 3.11 Buster|
+| ubuntu        | Nightly build of latest V on Ubuntu 20.04|
+| \[dist\]-dev  | Development build with all development dependecies on distribution alpine/buster |
+
+## OS specific base images
+
+OS specific base images are built for specific distributions. They are named `[dist]-base`.
+
+## Build images
+
+Specific images can be used in build actions. They are named `[dist]-build`
